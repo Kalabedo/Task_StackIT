@@ -88,7 +88,13 @@ export const ModelSpawner = () => {
       {spawned.map((item) => (
         <RigidBody
           key={item.id}
-          colliders="hull"
+          colliders={
+            item.shape === "sphere"
+              ? "ball"
+              : item.shape === "box"
+              ? "cuboid"
+              : "hull"
+          }
           position={item.position}
           rotation={item.rotation}
           scale={[item.scale, item.scale, item.scale]}

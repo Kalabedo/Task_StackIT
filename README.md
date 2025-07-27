@@ -2,6 +2,8 @@
 
 ## Installation
 
+Entwickelt und getestet wurde mit Mozilla Firefox.
+
 - `npm install`
 - `npm run dev`
 
