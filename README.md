@@ -7,6 +7,9 @@ Entwickelt und getestet wurde mit Mozilla Firefox.
 - `npm install`
 - `npm run dev`
 
+Alternativ läuft die Anwendung unter folgender URL:
+[Task StackIT 3rd Person Controller](https://deepskyblue-stingray-142605.hostingersite.com/)
+
 ## Anforderungen:
 
 - 4h Zeit
