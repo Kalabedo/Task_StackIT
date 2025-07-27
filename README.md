@@ -1,4 +1,11 @@
-### Anforderungen:
+# Task StackIT
+
+## Installation
+
+- `npm install`
+- `npm run dev`
+
+## Anforderungen:
 
 - 4h Zeit
 - **Wichtig**! Komponentenentwicklung, Bewegung, Interaktion
@@ -6,9 +13,9 @@
 - Sinnvoller Projektaufbau
 - Kommentare willkommen
 
-### Aufgabe + Vorüberlegungen
+## Aufgabe + Vorüberlegungen
 
-##### 🏛️ Setup
+### 🏛️ Setup
 
 Vorgabe:
 
@@ -29,7 +36,7 @@ Zusatz evtl:
 - Javascript, da schnellere Entwicklung und begrenzt Zeit
 - Beim ersten durchlesen der Aufgabe evtl auch die Zusätzlichen dependencies.
 
-##### 🧊 3D Szene
+### 🧊 3D Szene
 
 - nur notwendiges
 - Boden
@@ -41,7 +48,7 @@ Zusatz evtl:
 - Szene sollte nur notwendiges enthalten: Boden (Floor 1), Boden (Floor 2), Rampe nach oben/unten, Plattform als Aufzug, Licht simple, Camera ergibt sich durch 3rd Person controller
 - Evtl Erstellung Szene in Blender
 
-##### 🧍🏻3rd Person Controller
+### 🧍🏻3rd Person Controller
 
 - Avatar oder Kapsel
 - WASD Steuerung
@@ -52,7 +59,7 @@ Zusatz evtl:
 - Keine Erfahrung damit also erstmal nutzen, falls Zeit ist selbst versuchen
 - Character erstmal Kapsel, falls Zeit: Animated char?
 
-##### 🛗 Aufzug mit Sensor-Trigger
+### 🛗 Aufzug mit Sensor-Trigger
 
 - Beim Betreten Hochfahren
 - Erst wenn Char Aufzug verlässt runterfahren
@@ -63,7 +70,7 @@ Zusatz evtl:
 - Raycast test ob character den Aufzug betritt, falls model wie Aufzug (ähnlich wie in echt)
 - Oder nur Plattform (Plane) mit Test ob Char damit intersected
 
-##### 💠 Komponentenstruktur
+### 💠 Komponentenstruktur
 
 - Wiederverwendbarkeit Aufzug
 
@@ -72,6 +79,6 @@ Zusatz evtl:
 - Props die an die Aufzug Komponente gegeben werden machen die Komponente wiederverwendbar.
 - Aufbau gut überlegen
 
-##### 🌟 Bonus
+### 🌟 Bonus
 
 - Dynamisches Laden von 3D-Modellen
