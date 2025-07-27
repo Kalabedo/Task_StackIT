@@ -71,7 +71,7 @@ export const ModelSpawner = () => {
       {/* Spawner sensor */}
       <RigidBody
         type="fixed"
-        position={[0, 6.5, 0]}
+        position={[0, 6.6, 0]}
         colliders="cuboid"
         sensor
         onIntersectionEnter={() => setEntered(true)}
