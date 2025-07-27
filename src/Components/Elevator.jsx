@@ -1,24 +1,60 @@
 import { Edges } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { CuboidCollider, RigidBody } from "@react-three/rapier";
-import { useRef, useState } from "react";
+import { RigidBody } from "@react-three/rapier";
+import { useRef, useState, useEffect } from "react";
+
+/**
+ * Elevator component simulates elevator platform.
+ *
+ * - Moves up when a character enters the elevator sensor.
+ * - Moves down when the character exits at the top.
+ * - Uses a timer to delay movement transitions.
+ * - Elevator movement is handled via kinematic translation in useFrame.
+ *
+ * State transitions:
+ * - "idle": Elevator is at the bottom, waiting for entry.
+ * - "waitingUp": Character entered, waiting before going up.
+ * - "goingUp": Elevator is moving up.
+ * - "atTop": Elevator reached the top, waiting for exit.
+ * - "waitingDown": Character exited, waiting before going down.
+ * - "goingDown": Elevator is moving down.
+ */
 
 export const Elevator = () => {
   const [entered, setEntered] = useState(false);
   const elevatorRef = useRef();
 
-  const [state, setState] = useState("idle"); // idle | goingUp | atTop | goingDown
+  const [state, setState] = useState("idle"); // idle | goingUp | atTop | goingDown | waitingUp | waitingDown
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    // wenn char in elevator, kurz warten, dann hochfahren
+    if (entered && state === "idle") {
+      setState("waitingUp");
+      timerRef.current = setTimeout(() => {
+        setState("goingUp");
+      }, 500);
+    }
+
+    // wenn char aus elevator, kurz warten, dann runterfahren
+    if (!entered && state === "atTop") {
+      setState("waitingDown");
+      timerRef.current = setTimeout(() => {
+        setState("goingDown");
+      }, 500);
+    }
+
+    // cleanup timer
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [entered]);
 
   useFrame((_, delta) => {
     if (!elevatorRef.current) return;
-
     const pos = elevatorRef.current.translation();
 
     switch (state) {
-      case "idle":
-        if (entered) setState("goingUp");
-        break;
-
       case "goingUp":
         if (pos.y >= 4.9) {
           elevatorRef.current.setNextKinematicTranslation({
@@ -34,10 +70,6 @@ export const Elevator = () => {
             z: pos.z,
           });
         }
-        break;
-
-      case "atTop":
-        if (!entered) setState("goingDown");
         break;
 
       case "goingDown":

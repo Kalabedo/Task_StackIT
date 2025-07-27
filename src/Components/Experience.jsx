@@ -3,6 +3,8 @@ import { Character } from "./Character";
 import Ecctrl from "ecctrl";
 import { Map } from "./Map";
 import { Elevator } from "./Elevator";
+import { Light } from "./Light";
+import { ModelSpawner } from "./ModelSpawner";
 
 export const Experience = () => {
   const keyboardMap = [
@@ -32,7 +34,7 @@ export const Experience = () => {
           autoBalanceDampingC={0.05} // 0.03 default
           autoBalanceSpringOnY={0.5} // 0.5 default
           autoBalanceDampingOnY={0.015} // 0.015 default
-          mode={"FixedCamera"}
+          mode={"CameraBasedMovement"}
         >
           <Character />
         </Ecctrl>
@@ -41,6 +43,10 @@ export const Experience = () => {
       <Map />
 
       <Elevator />
+
+      <ModelSpawner />
+
+      <Light />
     </>
   );
 };

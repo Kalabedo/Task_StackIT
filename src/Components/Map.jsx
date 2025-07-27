@@ -8,7 +8,7 @@ export const Map = () => {
     <>
       <RigidBody type="fixed" colliders="trimesh">
         <mesh geometry={nodes.Map.geometry} castShadow receiveShadow>
-          <meshStandardMaterial color="#f0f0f0" side={THREE.DoubleSide} />
+          <meshStandardMaterial color="#cce1e9" side={THREE.DoubleSide} />
         </mesh>
       </RigidBody>
       <mesh geometry={nodes.Map.geometry} scale={0.999}>
