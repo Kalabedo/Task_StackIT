@@ -69,7 +69,6 @@ export const ModelSpawner = () => {
       </mesh>
 
       {/* Spawner sensor */}
-      {/* Sensor */}
       <RigidBody
         type="fixed"
         position={[0, 6.5, 0]}
